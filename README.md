@@ -1,8 +1,4 @@
-5# 📊 Dynamic Data Ingestion and Storage in HDFS with Automated Hive Integration
-
----
-
-## 📌 Project Title
+## 📌 Project Title:
 **Dynamic Data Ingestion and Storage in HDFS with Automated Hive Integration**
 
 ---
@@ -48,23 +44,21 @@ We are using population estimate data from the **US Census Bureau**:
 ### **Step 2: Upload File to HDFS**
 After downloading the dataset (`sub-est2023.csv`) into your VM:
 
-
+```sql
 hdfs dfs -mkdir -p /user/training/census
+
 hdfs dfs -put -f sub-est2023.csv /user/training/census/
 
+```
 ---
 
 ###  **Step 3: View File Content in HDFS**
 Use the following command to confirm that the file has been uploaded correctly and to preview its contents:
 
-
+```sql
 hdfs dfs -cat /user/training/census/sub-est2023.csv | head -20
 
-
----
-
-
-
+```
 
 
 ---
@@ -72,9 +66,9 @@ hdfs dfs -cat /user/training/census/sub-est2023.csv | head -20
 ### **Step 4: Start Hive**
 Open Hive from the terminal:
 
-
+```sql
 hive
-
+```
 
 
 ---
@@ -84,6 +78,7 @@ Before creating a Hive table, we need a dedicated database to organize our proje
 
 Run the following commands inside the Hive shell:
 
+```sql
 -- Create a database (only if it doesn’t exist already)
 CREATE DATABASE IF NOT EXISTS census_db;
 
@@ -93,8 +88,7 @@ USE census_db;
 -- Verify the current database
 SELECT current_database();
 
-
-
+```
 ---
 
 ### **Step 6: Create Hive Table**
@@ -103,6 +97,8 @@ The schema should match the structure of the CSV file.
 For simplicity, we define all columns as `STRING` (you can later refine datatypes like INT or BIGINT).  
 
 
+
+```sql
 -- Create Hive table for census data
 CREATE TABLE sub_est2023 (
   SUMLEV STRING,
@@ -134,6 +130,10 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 
 ---
 
+
+```
+
+
 ### **Step 7: Load Data into Hive and Verify**
 Once the Hive table is created, load the CSV data from HDFS into the table.  
 
@@ -141,7 +141,8 @@ Once the Hive table is created, load the CSV data from HDFS into the table.
 -- Load data from HDFS into the Hive table
 LOAD DATA INPATH '/user/training/census/sub-est2023.csv'
 INTO TABLE sub_est2023;
+```
 
-
-
-
+## ✅ Project Completed  
+This project is completed and titled as:  
+# 📊 Dynamic Data Ingestion and Storage in HDFS with Automated Hive Integration
