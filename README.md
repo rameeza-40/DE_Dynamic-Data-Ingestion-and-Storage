@@ -139,7 +139,7 @@ LOAD DATA INPATH '/user/training/census/sub-est2023.csv'
 INTO TABLE sub_est2023;
 ```
 ---
-
 ## ✅ Project Completed  
 This project is completed and titled as:  
 # 📊 Dynamic Data Ingestion and Storage in HDFS with Automated Hive Integration
+
