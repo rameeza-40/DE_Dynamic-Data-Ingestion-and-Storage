@@ -126,13 +126,9 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 TBLPROPERTIES ("skip.header.line.count"="1");
 
-
-
----
-
-
 ```
 
+---
 
 ### **Step 7: Load Data into Hive and Verify**
 Once the Hive table is created, load the CSV data from HDFS into the table.  
@@ -142,6 +138,7 @@ Once the Hive table is created, load the CSV data from HDFS into the table.
 LOAD DATA INPATH '/user/training/census/sub-est2023.csv'
 INTO TABLE sub_est2023;
 ```
+---
 
 ## ✅ Project Completed  
 This project is completed and titled as:  
